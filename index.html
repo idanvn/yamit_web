@@ -334,7 +334,10 @@
   .sticky-bar .btn{padding:14px 10px;font-size:1.02rem}
   @media(max-width:768px){
     .sticky-bar{display:grid}
-    body{padding-bottom:84px}
+    /* The spacer that keeps content clear of the fixed sticky bar lives INSIDE
+       the dark footer (not as body padding) — otherwise the body's light --paper
+       background shows as a white strip below the footer on iOS. */
+    footer{padding-bottom:calc(28px + 84px + env(safe-area-inset-bottom))}
   }
 
   /* toast */
