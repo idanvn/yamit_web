@@ -1,0 +1,54 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bonen-card:${TAG:-latest}
+    container_name: bonen-card
+    init: true                       # reap zombies + forward SIGTERM for clean stops
+    restart: unless-stopped
+    ports:
+      # Host port is configurable; container always listens on 8080.
+      - "${HOST_PORT:-8080}:8080"
+
+    # --- hardening ---
+    read_only: true                  # immutable rootfs; writable paths are tmpfs below
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL                          # nginx binds 8080 (>1024) — no caps needed
+    tmpfs:
+      # nginx-unprivileged writes its pid to /tmp and temp/cache under these dirs.
+      - /tmp:size=16m
+      - /var/cache/nginx:size=16m
+      - /var/run:size=4m
+
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+    # Static file serving is featherweight — cap it tight.
+    deploy:
+      resources:
+        limits:
+          memory: 64m
+          cpus: "0.50"
+        reservations:
+          memory: 16m
+          cpus: "0.05"
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge

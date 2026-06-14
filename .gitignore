@@ -27,13 +27,8 @@ dist-ssr
 *.png
 !public/*.png
 
-# Server-based hosting (not needed for GitHub Pages)
-Dockerfile
-docker-compose.yml
-.dockerignore
-nginx/
+# Local env secrets only
 .env
-.env.example
 
 # Backups
 index.landing-backup.html

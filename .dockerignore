@@ -1,0 +1,9 @@
+# Deny-all, then allow only what the image needs. Keeps the backup landing page,
+# node leftovers, screenshots, and tooling out of the build.
+**
+
+!index.html
+!accessibility.html
+!contact.vcf
+!public/
+!nginx/
