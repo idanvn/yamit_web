@@ -58,7 +58,10 @@
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-text-size-adjust:100%}
+  /* Navy root background so iOS Safari's rubber-band overscroll area (top &
+     bottom) matches the dark hero/footer and the navy toolbar tint, instead of
+     flashing the light --paper colour. */
+  html{-webkit-text-size-adjust:100%;background:var(--navy)}
   body{
     font-family:"Assistant","Heebo",system-ui,-apple-system,"Segoe UI",Arial,"Arial Hebrew",sans-serif;
     color:var(--ink);
