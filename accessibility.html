@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11203B">
+<title>הצהרת נגישות | בונן פיננסים</title>
+<meta name="description" content="הצהרת הנגישות של אתר בונן פיננסים — מחויבות לשירות שוויוני ונגיש לכלל הגולשים, בהתאם לתקנות הנגישות ולתקן הישראלי ת״י 5568.">
+<style>
+  :root{
+    --navy:#11203B;
+    --navy-deep:#0A1322;
+    --ink:#15233c;
+    --muted:#5b6a83;
+    --steel:#4E72A6;
+    --steel-light:#7C9BC6;
+    --paper:#eef1f6;
+    --paper-2:#f6f8fb;
+    --card:#ffffff;
+    --line:rgba(20,42,80,.10);
+    --line-soft:rgba(20,42,80,.06);
+    --radius:18px;
+    --radius-sm:12px;
+    --maxw:820px;
+    --shadow-sm:0 1px 2px rgba(16,32,59,.05),0 4px 16px rgba(16,32,59,.05);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Assistant","Heebo",system-ui,-apple-system,"Segoe UI",Arial,"Arial Hebrew",sans-serif;
+    color:var(--ink);background:var(--paper);line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:var(--steel);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ::selection{background:rgba(78,114,166,.22)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+
+  /* skip link + focus ring (same built-in accessibility as the main page) */
+  .skip-link{
+    position:fixed;top:-100px;right:16px;z-index:100;
+    background:var(--navy);color:#fff;font-weight:700;
+    padding:12px 20px;border-radius:0 0 var(--radius-sm) var(--radius-sm);
+    box-shadow:var(--shadow-sm);transition:top .18s;
+  }
+  .skip-link:focus{top:0;outline:3px solid var(--steel-light);outline-offset:2px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--steel);outline-offset:2px;border-radius:4px}
+  .page-head a:focus-visible{outline-color:var(--steel-light)}
+
+  /* header */
+  .page-head{
+    background:radial-gradient(130% 120% at 100% 0%, #1B2F52 0%, #11203B 46%, #0A1322 100%);
+    color:#fff;padding:clamp(24px,5vw,40px) 0;
+  }
+  .page-head .brand-logo{display:block;width:clamp(140px,20vw,190px);height:auto;margin-bottom:20px}
+  .page-head .brand-logo img{width:100%;height:auto;display:block}
+  .page-head h1{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;letter-spacing:-.01em}
+  .page-head .upd{margin-top:8px;font-size:.86rem;color:var(--steel-light)}
+
+  /* content */
+  main{padding:clamp(30px,5vw,52px) 0 clamp(40px,6vw,64px)}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);padding:clamp(22px,4vw,40px);
+  }
+  .card h2{
+    font-size:clamp(1.15rem,2.4vw,1.4rem);font-weight:700;color:var(--navy);
+    margin:28px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line-soft);
+  }
+  .card h2:first-of-type{margin-top:0}
+  .card p{margin-bottom:12px;color:#33425c}
+  .card ul{margin:0 22px 14px 0;display:flex;flex-direction:column;gap:7px}
+  .card li{color:#33425c}
+  .card strong{color:var(--navy);font-weight:700}
+
+  /* contact block */
+  .contact-box{
+    margin-top:18px;background:var(--paper-2);border:1px solid var(--line);
+    border-radius:var(--radius-sm);padding:18px 20px;
+  }
+  .contact-box .lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);font-weight:600;margin-bottom:10px}
+  .contact-box a{font-weight:600;direction:ltr;unicode-bidi:plaintext;display:inline-block}
+  .contact-row{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:4px}
+
+  /* TEMPORARY placeholders — must be filled in / removed before publishing. */
+  .todo{background:#fff3cd;color:#664d03;border:1px dashed #c9a227;border-radius:4px;padding:0 5px;font-weight:600;white-space:nowrap}
+
+  .back{
+    display:inline-flex;align-items:center;gap:8px;margin-top:26px;
+    font-weight:600;color:var(--steel);
+  }
+  .back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+  /* footer */
+  footer{background:var(--navy-deep);color:#9fb3cf;padding:26px 0;text-align:center;font-size:.84rem}
+  footer a{color:var(--steel-light)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  }
+  @media (prefers-contrast:more){
+    :root{--muted:#33425c;--steel:#2f568c;--line:rgba(20,42,80,.32)}
+    .card p,.card li{color:#1a2740}
+    a{text-decoration:underline}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">דלג לתוכן הראשי</a>
+
+<header class="page-head">
+  <div class="wrap">
+    <a href="index.html" class="brand-logo" aria-label="בונן פיננסים — חזרה לדף הבית">
+      <img src="public/logo_white.png" width="651" height="418" alt="בונן פיננסים, Bonen Finance" loading="eager" decoding="async">
+    </a>
+    <h1>הצהרת נגישות</h1>
+    <p class="upd">עודכן לאחרונה: יוני 2026</p>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="wrap">
+    <div class="card">
+
+      <h2>המחויבות שלנו</h2>
+      <p>בונן פיננסים רואה חשיבות רבה במתן שירות שוויוני ונגיש לכלל הלקוחות, לרבות אנשים עם מוגבלות. אנו משקיעים מאמצים ומשאבים כדי שאתר זה יהיה נגיש ונוח לשימוש עבור כמה שיותר אנשים, מתוך אמונה שלכל אדם מגיעה הזכות לקבל מידע ושירות בכבוד, בעצמאות ובשוויון.</p>
+
+      <h2>רמת הנגישות באתר</h2>
+      <p>אתר נגיש הוא אתר המאפשר לאנשים עם מוגבלות לגלוש בו ולקבל את המידע והשירות שהוא מציע, באופן עצמאי, נוח ושוויוני ככל האפשר.</p>
+      <p>אתר זה הונגש בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע״ג-2013, ובהתאם לתקן הישראלי ת״י 5568 לנגישות תכנים באינטרנט, המבוסס על הנחיות <span dir="ltr">WCAG 2.0</span> של ארגון <span dir="ltr">W3C</span> ברמת התאמה <span dir="ltr">AA</span>.</p>
+      <p>האתר נבנה לתאימות עם הדפדפנים הנפוצים בגרסאותיהם העדכניות (<span dir="ltr">Chrome, Firefox, Edge, Safari</span>) ועם טכנולוגיות מסייעות, לרבות תוכנות להקראת מסך. לקבלת חוויית גלישה מיטבית מומלץ להשתמש בגרסה עדכנית של הדפדפן ושל תוכנת ההקראה.</p>
+
+      <h2>מה נעשה להנגשת האתר</h2>
+      <ul>
+        <li>מבנה קוד סמנטי ותקני, עם חלוקה לאזורי תוכן ברורים (כותרת, תוכן ראשי וכותרת תחתונה).</li>
+        <li>ניווט מלא באמצעות מקלדת, כולל סימון ברור של הרכיב הפעיל וקישור ״דלג לתוכן״ בתחילת הדף.</li>
+        <li>תמיכה אוטומטית בהעדפות מערכת ההפעלה של המשתמש — ניגודיות גבוהה והפחתת אנימציות — ללא צורך בהפעלה ידנית.</li>
+        <li>טקסט חלופי לתמונות ולאייקונים, וניגודיות צבעים תקינה בין הטקסט לרקע.</li>
+        <li>טקסט הניתן להגדלה באמצעות הדפדפן מבלי לפגוע בפריסת הדף.</li>
+        <li>תאימות לטכנולוגיות מסייעות, לרבות קוראי מסך.</li>
+      </ul>
+
+      <h2>כיצד להתאים את הגלישה לצרכים שלכם</h2>
+      <ul>
+        <li><strong>הגדלת טקסט:</strong> החזיקו <span dir="ltr">Ctrl</span> (או <span dir="ltr">Cmd</span> במחשבי מק) והקישו על <span dir="ltr">+</span> להגדלה, ועל <span dir="ltr">−</span> להקטנה.</li>
+        <li><strong>ניגודיות גבוהה:</strong> הפעילו את מצב הניגודיות הגבוהה בהגדרות מערכת ההפעלה — האתר יגיב אליו אוטומטית.</li>
+        <li><strong>ניווט במקלדת:</strong> השתמשו במקש <span dir="ltr">Tab</span> למעבר בין הקישורים, וב-<span dir="ltr">Enter</span> להפעלתם.</li>
+      </ul>
+
+      <h2>מגבלות ידועות ודרך חלופית לקבלת מידע</h2>
+      <p>אנו עושים כל מאמץ להנגיש את כלל הדפים והרכיבים באתר, אולם ייתכן שחלקים מסוימים טרם הונגשו במלואם או שיימצאו רכיבים שאינם נגישים דיים. אנו ממשיכים לפעול לשיפור הנגישות באופן שוטף.</p>
+      <p>אם נתקלתם בתוכן או בשירות באתר שאינו נגיש עבורכם, נשמח לסייע ולמסור לכם את המידע בדרך חלופית — בטלפון, בהודעת וואטסאפ או בדואר אלקטרוני, לפי הפרטים המופיעים מטה. נעשה זאת בשמחה וללא כל תנאי.</p>
+
+      <h2>נגישות המשרד</h2>
+      <p>השירות שלנו ניתן ברובו מרחוק — בטלפון, בוואטסאפ ובדואר אלקטרוני — כך שניתן לקבל את מרבית השירותים מבלי להגיע פיזית. לצד זאת, משרדנו מקבל לקוחות, והסדרי הנגישות הפיזית בו הם כדלקמן:</p>
+      <ul>
+        <li><strong>כתובת המשרד:</strong> <span class="todo">למלא: כתובת מלאה</span></li>
+        <li><strong>חניה נגישה:</strong> <span class="todo">למלא: קיימת / לא קיימת — ופירוט מיקום</span></li>
+        <li><strong>כניסה נגישה לבעלי מוגבלות בניידות:</strong> <span class="todo">למלא: קיימת / לא קיימת — מדרגות / רמפה / מעלית</span></li>
+        <li><strong>שירותים נגישים:</strong> <span class="todo">למלא: קיימים / לא קיימים</span></li>
+        <li><strong>תיאום הגעה:</strong> ניתן לתאם מראש ביקור והתאמות נדרשות בטלפון או בדואר אלקטרוני המופיעים מטה.</li>
+      </ul>
+
+      <h2>נתקלתם בבעיית נגישות? נשמח לשמוע</h2>
+      <p>אם נתקלתם בקושי בגלישה באתר, או שיש לכם הצעה לשיפור הנגישות, נשמח שתפנו אלינו. נעשה את מירב המאמצים לתת מענה בהקדם האפשרי.</p>
+      <div class="contact-box">
+        <div class="lbl">פנייה בנושא נגישות</div>
+        <div class="contact-row">
+          <span>טלפון: <a href="tel:+97286430900">08-6430900</a></span>
+          <span>דוא״ל: <a href="mailto:office@bonen-fin.co.il">office@bonen-fin.co.il</a></span>
+        </div>
+      </div>
+
+      <a href="index.html" class="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l-7 7 7 7"/></svg>
+        חזרה לדף הבית
+      </a>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 בונן פיננסים · <a href="index.html">לדף הבית</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11203B">
+<title>בונן פיננסים | כרטיס ביקור דיגיטלי</title>
+<meta name="description" content="בונן פיננסים. ליווי פנסיוני ופיננסי בגובה העיניים. סוכנות פנסיונית מורשה. צרו קשר בלחיצה אחת.">
+<style>
+  :root{
+    --navy:#11203B;
+    --navy-deep:#0A1322;
+    --navy-soft:#1B2F52;
+    --ink:#15233c;
+    --muted:#5b6a83;
+    --steel:#4E72A6;
+    --steel-light:#7C9BC6;
+    --paper:#eef1f6;
+    --paper-2:#f6f8fb;
+    --card:#ffffff;
+    --line:rgba(20,42,80,.10);
+    --line-soft:rgba(20,42,80,.06);
+    --chrome:linear-gradient(135deg,#DCE8F3 0%,#A9C2DE 30%,#4E72A6 65%,#C9DBEC 100%);
+    --shadow-sm:0 1px 2px rgba(16,32,59,.05),0 4px 16px rgba(16,32,59,.05);
+    --shadow-md:0 2px 6px rgba(16,32,59,.06),0 16px 40px rgba(16,32,59,.09);
+    --radius:18px;
+    --radius-sm:12px;
+    --maxw:1120px;
+    --wa:#1faa55;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Assistant","Heebo",system-ui,-apple-system,"Segoe UI",Arial,"Arial Hebrew",sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(78,114,166,.22)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+
+  /* ---------- chrome text accent ---------- */
+  .chrome{
+    background:var(--chrome);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(130% 120% at 100% 0%, #1B2F52 0%, #11203B 46%, #0A1322 100%);
+    color:#fff;
+    padding:clamp(26px,5vw,52px) 0 clamp(30px,5vw,56px);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 80% at 12% 110%, rgba(124,155,198,.14), transparent 70%);
+  }
+  .hero .wrap{position:relative;z-index:1}
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:clamp(26px,4vw,52px);
+    align-items:center;
+  }
+  @media(min-width:880px){
+    .hero-grid{grid-template-columns:1.15fr .85fr}
+  }
+
+  .brand-row{margin-bottom:24px}
+  /* Brand mark = the white logo (full wordmark + tagline). Sits on the dark
+     hero; intrinsic ratio 651x418 set via width/height attrs to avoid CLS. */
+  .brand-logo{display:block;width:clamp(160px,24vw,224px);height:auto}
+  .brand-logo img{width:100%;height:auto;display:block}
+
+  .hero h1{
+    font-size:clamp(1.65rem,4.4vw,2.7rem);
+    font-weight:700;line-height:1.18;letter-spacing:-.01em;
+    margin-bottom:14px;
+  }
+  .hero .value{
+    font-size:clamp(1rem,1.7vw,1.12rem);
+    color:#d7e1ee;max-width:34ch;margin-bottom:8px;
+  }
+  .hero .sub{
+    font-size:.92rem;color:var(--steel-light);
+    letter-spacing:.03em;margin-bottom:26px;
+  }
+
+  /* support phrases */
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .pill{
+    font-size:.78rem;color:#cdd9e8;
+    border:1px solid rgba(159,186,219,.28);
+    border-radius:999px;padding:5px 13px;
+    background:rgba(255,255,255,.03);
+  }
+
+  /* ---- contact card in hero ---- */
+  .contact-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(159,186,219,.22);
+    border-radius:var(--radius);
+    padding:18px;
+    backdrop-filter:blur(2px);
+  }
+  .cc-title{
+    font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--steel-light);margin-bottom:14px;padding-right:2px;
+  }
+  .contact-row{
+    display:flex;align-items:center;gap:13px;
+    padding:11px 12px;border-radius:var(--radius-sm);
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(159,186,219,.12);
+    margin-bottom:9px;transition:background .18s,border-color .18s;
+  }
+  .contact-row:hover{background:rgba(255,255,255,.09);border-color:rgba(159,186,219,.3)}
+  .contact-row:last-of-type{margin-bottom:0}
+  .ci{
+    width:38px;height:38px;border-radius:10px;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(124,155,198,.16);
+  }
+  .ci svg{width:19px;height:19px;stroke:var(--steel-light);fill:none;stroke-width:1.7}
+  .contact-meta{display:flex;flex-direction:column;line-height:1.35;min-width:0}
+  .contact-meta .lbl{font-size:.74rem;color:var(--steel-light)}
+  .contact-meta .val{font-size:1.02rem;font-weight:600;color:#fff;direction:ltr;text-align:right;unicode-bidi:plaintext}
+
+  /* primary CTA + save contact */
+  .cta-stack{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-size:1rem;font-weight:600;font-family:inherit;
+    padding:14px 18px;border-radius:var(--radius-sm);
+    cursor:pointer;border:1px solid transparent;
+    transition:transform .12s ease,box-shadow .18s,background .18s,border-color .18s;
+    width:100%;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn svg{width:19px;height:19px;flex:none}
+  .btn-primary{
+    background:var(--chrome);color:#0A1322;font-weight:700;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 8px 22px rgba(78,114,166,.35);
+  }
+  .btn-primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 12px 28px rgba(78,114,166,.45)}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 22px rgba(31,170,85,.3)}
+  .btn-wa svg{fill:#fff;stroke:none}
+  .btn-ghost{
+    background:rgba(255,255,255,.05);color:#fff;
+    border-color:rgba(159,186,219,.32);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn-ghost svg{stroke:var(--steel-light);fill:none;stroke-width:1.7}
+
+  /* ============ SECTION SHELL ============ */
+  section.block{padding:clamp(38px,6vw,64px) 0}
+  .sec-head{margin-bottom:clamp(22px,3vw,34px)}
+  .eyebrow{
+    font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--steel);font-weight:600;margin-bottom:8px;
+  }
+  .sec-head h2{
+    font-size:clamp(1.4rem,3vw,2rem);font-weight:700;
+    color:var(--navy);letter-spacing:-.01em;line-height:1.2;
+  }
+
+  /* ============ SERVICES ============ */
+  .services-grid{
+    display:grid;grid-template-columns:1fr;gap:clamp(16px,2vw,22px);
+  }
+  @media(min-width:760px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+
+  .svc{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:clamp(20px,2.4vw,26px);
+    box-shadow:var(--shadow-sm);
+    display:flex;flex-direction:column;
+  }
+  .svc-icon{
+    width:44px;height:44px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#eaf0f7,#dbe6f2);
+    margin-bottom:15px;
+  }
+  .svc-icon svg{width:22px;height:22px;stroke:var(--steel);fill:none;stroke-width:1.6}
+  .svc h3{
+    font-size:1.16rem;font-weight:700;color:var(--navy);
+    margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line-soft);
+  }
+  .svc ol{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:5px}
+  .svc ol li{counter-increment:s}
+  .svc ol li a{
+    display:flex;align-items:center;gap:11px;
+    font-size:.96rem;color:#33425c;line-height:1.4;
+    padding:9px 11px;border-radius:11px;
+    border:1px solid transparent;
+    transition:background .15s,border-color .15s;
+  }
+  .svc ol li a:hover,.svc ol li a:focus-visible{
+    background:#f3f8fc;border-color:var(--line);outline:none;
+  }
+  .svc ol li a::before{
+    content:counter(s,decimal-leading-zero);
+    flex:none;width:24px;
+    font-size:.82rem;font-weight:700;color:var(--steel);
+    font-variant-numeric:tabular-nums;
+  }
+  .svc-li-text{flex:1 1 auto}
+  .svc-li-wa{
+    flex:none;width:27px;height:27px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(31,170,85,.10);transition:background .15s;
+  }
+  .svc-li-wa svg{width:15px;height:15px;fill:var(--wa)}
+  .svc ol li a:hover .svc-li-wa{background:rgba(31,170,85,.2)}
+
+  /* ============ WHY US ============ */
+  .why{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .why-grid{
+    display:grid;grid-template-columns:1fr;gap:clamp(14px,2vw,20px);
+  }
+  @media(min-width:560px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+  .why-card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:24px 22px;
+    box-shadow:var(--shadow-sm);
+  }
+  .why-card .wi{
+    width:42px;height:42px;border-radius:11px;margin-bottom:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#eaf0f7,#dbe6f2);
+  }
+  .why-card .wi svg{width:21px;height:21px;stroke:var(--steel);fill:none;stroke-width:1.6}
+  .why-card h4{font-size:1.08rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .why-card p{font-size:.9rem;color:var(--muted);line-height:1.5}
+
+  /* ============ CLOSING CTA ============ */
+  .closing{
+    background:radial-gradient(120% 130% at 100% 0%, #1B2F52 0%, #11203B 50%, #0A1322 100%);
+    color:#fff;text-align:center;
+    padding:clamp(40px,6vw,64px) 0;
+  }
+  .closing h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:10px}
+  .closing p{color:#cdd9e8;margin-bottom:24px}
+  .closing .cta-inline{
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:520px;margin:0 auto;
+  }
+  .closing .btn{width:auto;flex:1 1 200px;min-width:200px}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--navy-deep);color:#cdd9e8;padding:clamp(34px,5vw,52px) 0 28px}
+  .foot-grid{
+    display:grid;grid-template-columns:1fr;gap:26px;align-items:start;
+  }
+  @media(min-width:760px){.foot-grid{grid-template-columns:1.2fr 1fr 1fr}}
+  .foot-logo{width:clamp(140px,18vw,170px);margin-bottom:16px}
+  .foot-brand p{font-size:.9rem;color:#9fb3cf;max-width:34ch}
+  .foot-col h5{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-light);margin-bottom:14px}
+  .foot-link{
+    display:flex;align-items:center;gap:10px;
+    font-size:.98rem;color:#e3eaf4;margin-bottom:12px;
+    transition:color .15s;
+  }
+  .foot-link:hover{color:#fff}
+  .foot-link svg{width:17px;height:17px;stroke:var(--steel-light);fill:none;stroke-width:1.7;flex:none}
+  .foot-link .v{direction:ltr;unicode-bidi:plaintext}
+  .foot-link.wa svg{fill:var(--steel-light);stroke:none}
+  .copyright{
+    text-align:center;font-size:.82rem;color:#7488a3;
+    margin-top:32px;padding-top:22px;border-top:1px solid rgba(159,186,219,.12);
+  }
+  .copyright a{color:var(--steel-light);text-decoration:underline;text-underline-offset:2px}
+  .copyright a:hover{color:#fff}
+  /* Maker credit: deliberately quiet so it never competes with the brand. */
+  .credit{
+    display:block;margin-top:8px;
+    font-size:.74rem;letter-spacing:.08em;color:#566479;
+  }
+  .credit b{font-weight:600;color:#9fb3cf;letter-spacing:.04em}
+
+  /* ============ STICKY MOBILE BAR ============ */
+  .sticky-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    display:none;
+    grid-template-columns:1fr 1fr;gap:10px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(10,19,34,.92);
+    backdrop-filter:blur(10px);
+    border-top:1px solid rgba(159,186,219,.18);
+  }
+  .sticky-bar .btn{padding:14px 10px;font-size:1.02rem}
+  @media(max-width:768px){
+    .sticky-bar{display:grid}
+    body{padding-bottom:84px}
+  }
+
+  /* toast */
+  .toast{
+    position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(16px);
+    background:var(--navy);color:#fff;font-size:.9rem;font-weight:600;
+    padding:12px 22px;border-radius:999px;
+    box-shadow:0 12px 30px rgba(0,0,0,.3);
+    opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:60;
+    border:1px solid rgba(159,186,219,.25);
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(min-width:769px){.toast{bottom:32px}}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  }
+
+  /* ============ BUILT-IN ACCESSIBILITY ============ */
+  /* Accessibility is baked into the markup: semantic landmarks, a skip link,
+     a clear keyboard focus ring, and OS-level high-contrast support, instead
+     of a floating widget. The page respects the visitor's own system settings. */
+
+  /* Skip-to-content link: hidden until focused via keyboard (Tab). */
+  .skip-link{
+    position:fixed;top:-100px;right:16px;z-index:100;
+    background:var(--navy);color:#fff;font-weight:700;
+    padding:12px 20px;border-radius:0 0 var(--radius-sm) var(--radius-sm);
+    box-shadow:var(--shadow-md);transition:top .18s;
+  }
+  .skip-link:focus{top:0;outline:3px solid var(--steel-light);outline-offset:2px}
+
+  /* Single, consistent keyboard focus ring across every interactive element. */
+  a:focus-visible,button:focus-visible,
+  [tabindex]:focus-visible,input:focus-visible{
+    outline:3px solid var(--steel);outline-offset:2px;border-radius:4px;
+  }
+  /* On the dark hero/closing/footer, use the lighter steel so the ring stays visible. */
+  .hero a:focus-visible,.closing a:focus-visible,
+  footer a:focus-visible,.sticky-bar a:focus-visible{
+    outline-color:var(--steel-light);
+  }
+
+  /* Honour the OS "increase contrast" setting automatically (Windows High
+     Contrast, macOS Increase Contrast), no manual toggle needed. */
+  @media (prefers-contrast:more){
+    :root{--muted:#33425c;--steel:#2f568c;--line:rgba(20,42,80,.32);--line-soft:rgba(20,42,80,.24)}
+    .pill{border-color:rgba(159,186,219,.6);color:#e8eef7}
+    .btn{border-color:currentColor}
+    a:not(.btn){text-decoration:underline}
+  }
+</style>
+</head>
+<body>
+
+<!-- Keyboard users: jump straight to the main content (visible only on focus). -->
+<a class="skip-link" href="#main-content">דלג לתוכן הראשי</a>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-text">
+        <div class="brand-row">
+          <span class="brand-logo">
+            <img src="public/logo_white.png" width="651" height="418" alt="בונן פיננסים, Bonen Finance" loading="eager" decoding="async">
+          </span>
+        </div>
+
+        <h1>העתיד הפיננסי שלכם,<br>מתוכנן לפְּרָטֵי פְּרָטִים.</h1>
+        <p class="value">ליווי פנסיוני ופיננסי בגובה העיניים. בהירות, סדר ושקט נפשי לאורך זמן.</p>
+        <p class="sub">תמיד יש למי להתקשר. מענה אישי ומקצועי, בקצב שלכם ובלי לחץ.</p>
+
+        <div class="pills">
+          <span class="pill">דיסקרטיות מלאה</span>
+          <span class="pill">ליווי אישי</span>
+          <span class="pill">מענה אנושי</span>
+        </div>
+      </div>
+
+      <!-- contact card -->
+      <div class="contact-card">
+        <div class="cc-title">צרו קשר בלחיצה</div>
+
+        <a class="contact-row" href="tel:+97286430900" aria-label="התקשרו 08-6430900">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span class="contact-meta"><span class="lbl">טלפון</span><span class="val">08-6430900</span></span>
+        </a>
+
+        <a class="contact-row js-wa" href="https://wa.me/972549686995" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ">
+          <span class="ci"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style="fill:#7C9BC6"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.22 8.24c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14 0-.31-.02-.47-.02-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></span>
+          <span class="contact-meta"><span class="lbl">וואטסאפ</span><span class="val">972-54-968-6995</span></span>
+        </a>
+
+        <a class="contact-row" href="mailto:office@bonen-fin.co.il" aria-label="מייל">
+          <span class="ci"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+          <span class="contact-meta"><span class="lbl">מייל</span><span class="val">office@bonen-fin.co.il</span></span>
+        </a>
+
+        <div class="cta-stack">
+          <a class="btn btn-primary js-wa" href="https://wa.me/972549686995" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="#0A1322" stroke="none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm4.52 11.97c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.47-.01c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+            לשיחת ייעוץ ראשונית ללא עלות
+          </a>
+          <a class="btn btn-ghost" id="saveContact" href="contact.vcf">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+            שמירת איש קשר לטלפון
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ============ SERVICES ============ -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">תחומי שירות</div>
+      <h2>מה אנחנו עושים</h2>
+      <p class="sec-note">הקישו על שירות לפנייה ישירה בוואטסאפ, ונחזור אליכם בדיוק בנושא שמעניין אתכם.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>תכנון פנסיוני</h3>
+        <ol>
+          <li><a class="js-wa-svc" data-service="תכנון פנסיוני זוגי / משפחתי"><span class="svc-li-text">תכנון פנסיוני זוגי / משפחתי</span></a></li>
+          <li><a class="js-wa-svc" data-service="תכנון פנסיוני יחיד"><span class="svc-li-text">תכנון פנסיוני יחיד</span></a></li>
+          <li><a class="js-wa-svc" data-service="תכנון פרישה מקיף"><span class="svc-li-text">תכנון פרישה מקיף</span></a></li>
+        </ol>
+      </div>
+
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+        <h3>שירותים פנסיוניים</h3>
+        <ol>
+          <li><a class="js-wa-svc" data-service="טיפול בעזיבת עבודה"><span class="svc-li-text">טיפול בעזיבת עבודה</span></a></li>
+          <li><a class="js-wa-svc" data-service="קבלת בעלות / שינוי פרטי מעסיק והנחות"><span class="svc-li-text">קבלת בעלות / שינוי פרטי מעסיק והנחות</span></a></li>
+          <li><a class="js-wa-svc" data-service="משיכת פיצויים / פדיון השתלמות וגמל"><span class="svc-li-text">משיכת פיצויים / פדיון השתלמות וגמל</span></a></li>
+          <li><a class="js-wa-svc" data-service="מסלקה פנסיונית"><span class="svc-li-text">מסלקה פנסיונית</span></a></li>
+          <li><a class="js-wa-svc" data-service="אישורי מס לפוליסות שאינן דרכנו"><span class="svc-li-text">אישורי מס לפוליסות שאינן דרכנו</span></a></li>
+        </ol>
+      </div>
+
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>שירותים נוספים</h3>
+        <ol>
+          <li><a class="js-wa-svc" data-service="העמדת הלוואה"><span class="svc-li-text">העמדת הלוואה</span></a></li>
+          <li><a class="js-wa-svc" data-service="חישוב הפקדות רטרו"><span class="svc-li-text">חישוב הפקדות רטרו</span></a></li>
+          <li><a class="js-wa-svc" data-service="שעת פגישה"><span class="svc-li-text">שעת פגישה</span></a></li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="block why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">הערך שלנו</div>
+      <h2>למה בונן פיננסים</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="wi"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>ליווי אישי</h4>
+        <p>איש מקצוע אחד שמכיר אתכם ואת התיק לאורך כל הדרך.</p>
+      </div>
+      <div class="why-card">
+        <div class="wi"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h4>ראייה לטווח הארוך</h4>
+        <p>החלטות שמתאימות לכם גם בעוד 10 ו-20 שנה, לא רק היום.</p>
+      </div>
+      <div class="why-card">
+        <div class="wi"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h4>דיסקרטיות מלאה</h4>
+        <p>המידע שלכם נשמר בסודיות מוחלטת, תמיד.</p>
+      </div>
+      <div class="why-card">
+        <div class="wi"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h4>שקיפות מלאה</h4>
+        <p>מסבירים כל צעד בשפה פשוטה, בלי אותיות קטנות.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="closing">
+  <div class="wrap">
+    <h2>נשמח להכיר</h2>
+    <p>לשיחת ייעוץ ראשונית ללא עלות. דיסקרטיות מלאה · ליווי אישי · מענה אנושי.</p>
+    <div class="cta-inline">
+      <a class="btn btn-wa js-wa" href="https://wa.me/972549686995" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm4.52 11.97c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.47-.01c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        כתבו לנו בוואטסאפ
+      </a>
+      <a class="btn btn-ghost" href="tel:+97286430900">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        08-6430900
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-logo foot-logo">
+          <img src="public/logo_white.png" width="651" height="418" alt="בונן פיננסים, Bonen Finance" loading="lazy" decoding="async">
+        </span>
+        <p><strong style="color:#fff">בונן פיננסים</strong>, סוכנות פנסיונית-פיננסית. ליווי פנסיוני ופיננסי בגובה העיניים.</p>
+      </div>
+
+      <div class="foot-col">
+        <h5>יצירת קשר</h5>
+        <a class="foot-link" href="tel:+97286430900">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="v">08-6430900</span>
+        </a>
+        <a class="foot-link wa js-wa" href="https://wa.me/972549686995" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.22 8.24c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14 0-.31-.02-.47-.02-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+          <span class="v">972-54-968-6995</span>
+        </a>
+        <a class="foot-link" href="mailto:office@bonen-fin.co.il">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          <span class="v">office@bonen-fin.co.il</span>
+        </a>
+      </div>
+
+      <div class="foot-col">
+        <h5>פעולה מהירה</h5>
+        <a class="foot-link" href="contact.vcf" id="saveContactFoot">
+          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+          שמירת איש קשר (vCard)
+        </a>
+        <a class="foot-link wa js-wa" href="https://wa.me/972549686995" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.22 8.24c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14 0-.31-.02-.47-.02-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+          לשיחת ייעוץ ראשונית ללא עלות
+        </a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 בונן פיננסים · כל הזכויות שמורות · <a href="accessibility.html">הצהרת נגישות</a>
+      <span class="credit">Powered by <b>ViTech</b></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE BAR ============ -->
+<nav class="sticky-bar" aria-label="פעולות מהירות">
+  <a class="btn btn-primary" href="tel:+97286430900">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0A1322" stroke-width="1.9"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    התקשרו
+  </a>
+  <a class="btn btn-wa js-wa" href="https://wa.me/972549686995" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm4.52 11.97c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.47-.01c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+    וואטסאפ
+  </a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite">פותח את כרטיס איש הקשר, אשרו לשמירה</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // --- WhatsApp: attach a prefilled, eye-level message to every wa.me link ---
+  var waMsg = "היי, הגעתי דרך כרטיס הביקור של בונן פיננסים ואשמח לתאם שיחת ייעוץ ראשונית.";
+  var waBase = "https://wa.me/972549686995";
+  Array.prototype.forEach.call(document.querySelectorAll(".js-wa"), function(a){
+    a.setAttribute("href", waBase + "?text=" + encodeURIComponent(waMsg));
+  });
+
+  // --- per-service WhatsApp links: prefilled with the specific service ---
+  var waSvcPrefix = "היי, הגעתי דרך כרטיס הביקור של בונן פיננסים. אשמח לקבל פרטים על: ";
+  var waIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm4.52 11.97c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.47-.01c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>';
+  Array.prototype.forEach.call(document.querySelectorAll(".js-wa-svc"), function(a){
+    var name = a.getAttribute("data-service") || a.textContent.trim();
+    a.setAttribute("href", waBase + "?text=" + encodeURIComponent(waSvcPrefix + name + "."));
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener noreferrer");
+    a.setAttribute("aria-label", "פנייה בוואטסאפ בנושא " + name);
+    var ic = document.createElement("span");
+    ic.className = "svc-li-wa";
+    ic.innerHTML = waIcon;
+    a.appendChild(ic);
+  });
+
+  // --- Save contact ---
+  // The buttons are plain links to /contact.vcf, served as text/vcard (see
+  // nginx config). A tap therefore opens the phone's native "Add to Contacts"
+  // sheet (iOS) or hands the card to the Contacts importer (Android); no JS
+  // file generation, no manual "open the download" step. This handler only
+  // surfaces a brief reassurance toast while that native sheet appears.
+  function flashToast(){
+    var t = document.getElementById("toast");
+    if(!t) return;
+    t.classList.add("show");
+    setTimeout(function(){ t.classList.remove("show"); }, 2600);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('a[href$="contact.vcf"]'), function(a){
+    a.addEventListener("click", flashToast);
+  });
+})();
+</script>
+</body>
+</html>
